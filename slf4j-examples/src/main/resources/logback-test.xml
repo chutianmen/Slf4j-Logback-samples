@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="6000000" debug="false">
+
+	<property name="LOG_PATTERN" value="%date{HH:mm:ss.SSS} %-5p [%t:%c{1}:%L] - %msg%n"/>
+
+	<!-- 系统级配置文件　开始 -->
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<Pattern>${LOG_PATTERN}</Pattern>
+		</layout>
+	</appender>
+
+	<root level="debug">
+		<!-- 本地测试时使用，将日志打印到控制台,实际部署时请注释掉 -->
+		<appender-ref ref="STDOUT" />
+	</root>
+</configuration>

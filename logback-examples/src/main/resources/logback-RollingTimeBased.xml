@@ -1,0 +1,20 @@
+<configuration>
+	<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>logFile.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+<!-- 			按天轮转 -->
+			<fileNamePattern>logFile.%d{yyyy-MM-dd}.log</fileNamePattern>
+<!-- 			保存 30 天的历史记录，最大大小为 30GB -->
+			<maxHistory>30</maxHistory>
+			<totalSizeCap>3GB</totalSizeCap>
+		</rollingPolicy>
+		
+		<encoder>
+			<pattern>%-4relative [%thread] %-5level %logger{35} - %msg%n</pattern>
+		</encoder>
+	</appender>
+	
+	<root level="DEBUG">
+		<appender-ref ref="FILE" />
+	</root>
+</configuration>

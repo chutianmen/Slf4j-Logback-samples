@@ -1,0 +1,14 @@
+<configuration>
+	<property name="USER_HOME" value="/data/logs" />
+	<property name="pattern" value="%d{HH:mm:ss.SSS} [%-5level] [%logger] %msg%n" />
+	<appender name="FILE" class="ch.qos.logback.core.FileAppender">
+		<file>${USER_HOME}/myApp.log</file>
+		<encoder>
+			<pattern>${pattern}</pattern>
+		</encoder>
+	</appender>
+	
+	<root level="debug">
+		<appender-ref ref="FILE" />
+	</root>	
+</configuration>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="6000000" debug="false">
+
+    <property name="LOG_PATTERN" value="%date{HH:mm:ss.SSS} %-5p [%t:%c{1}:%L] - %msg%n"/>
+
+    <!-- 系统级配置文件　开始 -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>${LOG_PATTERN}</Pattern>
+        </layout>
+    </appender>
+
+    <!-- stdout -->
+    <appender name="rootstdout"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>${LOG_PATH}rootstdout.log</File>
+        <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+            <FileNamePattern>${LOG_PATH}rootstdout.%i.log.zip</FileNamePattern>
+            <MinIndex>1</MinIndex>
+            <MaxIndex>20</MaxIndex>
+        </rollingPolicy>
+        <triggeringPolicy
+                class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <MaxFileSize>10MB</MaxFileSize>
+        </triggeringPolicy>
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>${LOG_PATTERN}</Pattern>
+        </layout>
+    </appender>
+
+
+    <springProfile name="local">
+        <root level="debug">
+            <!-- 本地测试时使用，将日志打印到控制台,实际部署时请注释掉 -->
+            <appender-ref ref="STDOUT" />
+            <appender-ref ref="rootstdout" />
+        </root>
+    </springProfile>
+
+    <springProfile name="dev">
+        <root level="info">
+            <!-- 本地测试时使用，将日志打印到控制台,实际部署时请注释掉 -->
+            <appender-ref ref="STDOUT" />
+            <appender-ref ref="rootstdout" />
+        </root>
+    </springProfile>
+
+    <springProfile name="prod">
+        <root level="warn">
+            <!-- 本地测试时使用，将日志打印到控制台,实际部署时请注释掉 -->
+            <appender-ref ref="STDOUT" />
+            <appender-ref ref="rootstdout" />
+        </root>
+    </springProfile>
+</configuration>

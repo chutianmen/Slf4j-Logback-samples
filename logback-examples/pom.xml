@@ -1,0 +1,73 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>logback-examples</groupId>
+	<artifactId>logback-examples</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>7</source>
+					<target>7</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<properties>
+		<project.build.sourceEncoding>UTF8</project.build.sourceEncoding>
+		<spring.version>4.3.14.RELEASE</spring.version>
+	</properties>
+
+	<dependencies>
+
+		<!-- https://mvnrepository.com/artifact/org.fusesource.jansi/jansi -->
+		<dependency>
+			<groupId>org.fusesource.jansi</groupId>
+			<artifactId>jansi</artifactId>
+			<version>1.8</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.codehaus.janino</groupId>
+			<artifactId>janino</artifactId>
+			<version>3.0.6</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.25</version>
+		</dependency>
+
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-core</artifactId>
+			<version>1.2.3</version>
+		</dependency>
+
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>1.2.3</version>
+		</dependency>
+
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-examples</artifactId>
+			<version>1.3.0-alpha2</version>
+		</dependency>
+
+	</dependencies>
+</project>
